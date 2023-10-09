@@ -7,6 +7,52 @@
     <title>Vite + TS</title>
   </head>
   <body>
+
+    <a href="https://disk.yandex.ru/d/KwdXQropyuL3Iw" target="_blanc">Учебные материалы</a>
+    
+    <div class="container">
+    
+    <div class="tabs">
+      <span data-tab-value="#tab_1">Tab 1</span>
+      <span data-tab-value="#tab_2">Tab 2</span>
+      <span data-tab-value="#tab_3">Tab 3</span>
+    </div>
+
+    <div class="tab-content">
+      <div class="tabs_tab active" id="tab_1" data-tab-info>
+        <p>Welcome Folks</p>
+      </div>
+
+      <div class="tabs_tab" id="tab_2" data-tab-info>
+        <p>Glad to see everyone</p>
+      </div>
+
+
+      <div class="tabs_tab" id="tab_3" data-tab-info>
+        <p>You can find here whatever you want
+        </p>
+      </div>
+
+    </div>
+
+    </div>
+
+    <section class="modal hidden">
+      <div class="flex">
+      <img src="images/BidenPortrait.jpg" width="50px" height="50px" alt="">
+        <button class="btn-close">X</button>
+      </div>
+
+      <div>
+        <h3>You're Welcome</h3>
+        <p>Don't worry this modal form is made just for exersice 2. Funny</p>
+      </div>
+    </section>
+    <div class="overlay hidden"></div>
+    <button class="btn btn-open">Open Modal</button>
+
+
+
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
