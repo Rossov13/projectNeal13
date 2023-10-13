@@ -3,6 +3,8 @@ import './style.css'
 // JS_PZ_Module_15_16_Week_21_1548323208.pdf
 
 // 1.
+
+
 const tabs = document.querySelectorAll('[data-tab-value]') as NodeListOf<HTMLElement>
 const tabInfos = document.querySelectorAll('[data-tab-info]')
 
@@ -18,4 +20,7 @@ tabs.forEach(tab => {
     })
 })
 
+
 // 2.
+
+
