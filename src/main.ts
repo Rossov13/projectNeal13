@@ -22,5 +22,26 @@ tabs.forEach(tab => {
 
 
 // 2.
+let modal = document.getElementById("myModal")
+let btn = document.getElementById("myBtn")
+let span = document.getElementsByClassName('btn')[0] as HTMLElement;
 
+if (btn?.onclick) (
+btn.onclick = function () {
+    if (modal?.style.display) {
+    modal.style.display = "block";
+    }
+})
+ 
+    span.onclick = function() {
+        if(modal?.style.display)
+        modal.style.display = "none"
+    }
 
+window.onclick = function(event) {
+    if (event.target == modal) { 
+        if(modal?.style.display) {
+        modal.style.display = "none"
+    }
+}
+}
