@@ -22,26 +22,29 @@ tabs.forEach(tab => {
 
 
 // 2.
-let modal = document.getElementById("myModal")
-let btn = document.getElementById("myBtn")
-let span = document.getElementsByClassName('btn')[0] as HTMLElement;
+const updateButton = document.getElementById('updateDetails') as HTMLElement;
+const cancelButton = document.getElementById("cancel") as HTMLElement;
+const dialog = document.getElementById("favDialog") as HTMLElement
 
-if (btn?.onclick) (
-btn.onclick = function () {
-    if (modal?.style.display) {
-    modal.style.display = "block";
-    }
-})
- 
-    span.onclick = function() {
-        if(modal?.style.display)
-        modal.style.display = "none"
-    }
+// dialog.returnValue = "favDialog" ;
 
-window.onclick = function(event) {
-    if (event.target == modal) { 
-        if(modal?.style.display) {
-        modal.style.display = "none"
+function openCheck(dialog: any)  {
+    if (dialog.open) {
+      console.log("Dialog open");
+    } else {
+      console.log("Dialog closed");
     }
-}
-}
+  }
+  
+  updateButton.addEventListener("click", () => {
+    dialog.showModal();
+    openCheck(dialog);
+  });
+  
+  
+  cancelButton.addEventListener("click", () => {
+    dialog.close("animalNotChosen");
+    openCheck(dialog);
+  });
+
+  
