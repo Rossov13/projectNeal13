@@ -23,28 +23,46 @@ tabs.forEach(tab => {
 
 // 2.
 const updateButton = document.getElementById('updateDetails') as HTMLElement;
-const cancelButton = document.getElementById("cancel") as HTMLElement;
-const dialog = document.getElementById("favDialog") as HTMLElement
+const dialog = document.getElementById("favDialog") as HTMLDialogElement;
+// const cancelButton = dialog.querySelector("[type=reset]") as HTMLElement;
+// const confirm = dialog.querySelector("[type=submit]") as HTMLElement;
+const select = dialog.querySelector("#favAnimal") as HTMLSelectElement
 
-// dialog.returnValue = "favDialog" ;
-
-function openCheck(dialog: any)  {
-    if (dialog.open) {
-      console.log("Dialog open");
+dialog.addEventListener('close', (e)=>{
+    if (dialog.returnValue=='cancel') {
+        console.log("Canceled");
     } else {
-      console.log("Dialog closed");
+        console.log(select.value)
     }
-  }
-  
-  updateButton.addEventListener("click", () => {
-    dialog.showModal();
-    openCheck(dialog);
-  });
-  
-  
-  cancelButton.addEventListener("click", () => {
-    dialog.close("animalNotChosen");
-    openCheck(dialog);
-  });
+})
 
-  
+
+// function openCheck(dialog: any) {
+//     if (dialog.open) {
+//         console.log("Dialog open");
+//     } else {
+//         console.log("Dialog closed");
+//     }
+// }
+
+updateButton.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+
+// cancelButton.addEventListener("click", () => {
+//     dialog.close();
+//     console.log("animalNotChosen")
+//     openCheck(dialog);
+// });
+
+// confirm.addEventListener("click", () => {
+//     dialog.close();
+//     const 
+//     openCheck(dialog);
+// });
+
+// return.value = "favDialog"
+
+
+
