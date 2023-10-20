@@ -65,5 +65,5 @@ updateButton.addEventListener("click", () => {
 // return.value = "favDialog"
 
 // 3. Text field with autocomplete.
+// 4. User rating score card
 
- 

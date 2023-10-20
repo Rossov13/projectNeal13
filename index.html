@@ -59,17 +59,11 @@
     <button id="updateDetails">Update details</button>
   </div>
 
-<!-- <h1>Autocomplete</h1>
+<h1>Autocomplete</h1>
 
-  <form autocomplete="off" action="/action_page.php">
-  <div class="autocomplete" style="width:300px">
-  <input id="myInput" type="text" name="myLanguage" placeholder="Language">
-  
-</div>
-<input type="submit">
-</form> -->
 
-<input type="search" list="languages" placeholder="Pick a programming language..">
+<label class="wordNearInput" for="text">Languages</label>
+<input class="wordNearInput" type="search" list="languages" placeholder="Pick a programming language..">
 
 <datalist id="languages">
   <option value="PHP" />
@@ -81,6 +75,89 @@
   <option value="Perl" />
   <option value="Erlang" />
 </datalist>
+
+<div class="userRating">
+
+<span class="heading">User Rating</span>
+<span class="star-stst checked"></span>
+<span class="star-stst checked"></span>
+<span class="star-stst checked"></span>
+<span class="star-stst checked"></span>
+<span class="star-stst checked"></span>
+<span class="star-stst"></span>
+<hr style="border: 3px solid #f1f1f1">
+
+
+<div class="row">
+  <div class="side">
+    <div>5 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-5"></div>
+    </div>
+  </div>
+    <div class="side right">
+      <div>150</div>
+    </div>
+
+    
+  <div class="side">
+    <div>4 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-4"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>63</div>
+  </div>
+
+
+  <div class="side">
+    <div>3 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-3"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>15</div>
+  </div>
+
+
+  <div class="side">
+    <div>2 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-2"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>6</div>
+  </div>
+
+
+  <div class="side">
+    <div>1 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-1"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>20</div>
+  </div>
+
+</div>
+
+
+
+
 
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
