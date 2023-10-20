@@ -1,17 +1,19 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
 
-    <a href="https://disk.yandex.ru/d/KwdXQropyuL3Iw" target="_blanc">Учебные материалы</a>
-    
-    <div class="container">
-    
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + TS</title>
+</head>
+
+<body>
+
+  <a href="https://disk.yandex.ru/d/KwdXQropyuL3Iw" target="_blanc">Учебные материалы</a>
+
+  <div class="container">
+
     <div class="tabs">
       <span data-tab-value="tab_1">Tab 1</span>
       <span data-tab-value="tab_2">Tab 2</span>
@@ -35,7 +37,7 @@
 
     </div>
 
-    </div>
+  </div>
 
   <dialog id="favDialog">
     <form method="dialog">
@@ -59,36 +61,36 @@
     <button id="updateDetails">Update details</button>
   </div>
 
-<h1>Autocomplete</h1>
+  <h1>Autocomplete</h1>
 
 
-<label class="wordNearInput" for="text">Languages</label>
-<input class="wordNearInput" type="search" list="languages" placeholder="Pick a programming language..">
+  <label class="wordNearInput" for="text">Languages</label>
+  <input class="wordNearInput" type="search" list="languages" placeholder="Pick a programming language..">
 
-<datalist id="languages">
-  <option value="PHP" />
-  <option value="C++" />
-  <option value="Java" />
-  <option value="Ruby" />
-  <option value="Python" />
-  <option value="Go" />
-  <option value="Perl" />
-  <option value="Erlang" />
-</datalist>
+  <datalist id="languages">
+    <option value="PHP" />
+    <option value="C++" />
+    <option value="Java" />
+    <option value="Ruby" />
+    <option value="Python" />
+    <option value="Go" />
+    <option value="Perl" />
+    <option value="Erlang" />
+  </datalist>
 
-<div class="userRating">
+  <div class="userRating">
 
-<span class="heading">User Rating</span>
+    <!-- <span class="heading">User Rating</span>
 <span class="star-stst checked"></span>
 <span class="star-stst checked"></span>
 <span class="star-stst checked"></span>
 <span class="star-stst checked"></span>
 <span class="star-stst checked"></span>
 <span class="star-stst"></span>
-<hr style="border: 3px solid #f1f1f1">
+<hr style="border: 3px solid #f1f1f1"> -->
 
 
-<div class="row">
+<!-- <div class="row">
   <div class="side">
     <div>5 star</div>
   </div>
@@ -151,15 +153,16 @@
   </div>
   <div class="side right">
     <div>20</div>
+  </div> -->
+
   </div>
 
-</div>
 
 
 
 
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
 
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
 </html>
