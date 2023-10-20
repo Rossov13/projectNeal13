@@ -2,7 +2,7 @@ import './style.css'
 
 // JS_PZ_Module_15_16_Week_21_1548323208.pdf
 
-// 1.
+// 1. HTML page with tabs.
 
 
 const tabs = document.querySelectorAll('[data-tab-value]') as NodeListOf<HTMLElement>
@@ -21,7 +21,7 @@ tabs.forEach(tab => {
 })
 
 
-// 2.
+// 2. Modal window.
 const updateButton = document.getElementById('updateDetails') as HTMLElement;
 const dialog = document.getElementById("favDialog") as HTMLDialogElement;
 // const cancelButton = dialog.querySelector("[type=reset]") as HTMLElement;
@@ -64,5 +64,6 @@ updateButton.addEventListener("click", () => {
 
 // return.value = "favDialog"
 
+// 3. Text field with autocomplete.
 
-
+ 

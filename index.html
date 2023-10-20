@@ -59,6 +59,28 @@
     <button id="updateDetails">Update details</button>
   </div>
 
+<!-- <h1>Autocomplete</h1>
+
+  <form autocomplete="off" action="/action_page.php">
+  <div class="autocomplete" style="width:300px">
+  <input id="myInput" type="text" name="myLanguage" placeholder="Language">
+  
+</div>
+<input type="submit">
+</form> -->
+
+<input type="search" list="languages" placeholder="Pick a programming language..">
+
+<datalist id="languages">
+  <option value="PHP" />
+  <option value="C++" />
+  <option value="Java" />
+  <option value="Ruby" />
+  <option value="Python" />
+  <option value="Go" />
+  <option value="Perl" />
+  <option value="Erlang" />
+</datalist>
 
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
