@@ -100,13 +100,13 @@ function renderRating() {
   ratingDiv.innerHTML = ''
   ratingDiv.innerHTML += `<span class="heading">${rating.header}</span>`
   ratingDiv.innerHTML += `<hr style="border: 3px solid #f1f1f1">`
-  rating.data.forEach(el=>{
+  rating.data.forEach(el => {
     ratingDiv.innerHTML += `<div class="side">
     <div>${el.title}</div>
   </div>
   <div class="middle">
     <div class="bar-container">
-      <div style="width:${el.value/rating.maxvalue*100}%" class="bar-${el.title[0]}"></div>
+      <div style="width:${el.value / rating.maxvalue * 100}%" class="bar-${el.title[0]}"></div>
     </div>
   </div>
     <div class="side right">
@@ -119,8 +119,8 @@ renderRating()
 
 const cards = document.querySelectorAll('.memory-card') as NodeListOf<HTMLDivElement>
 const startGame = document.querySelector('#startGame') as HTMLButtonElement
-const cardsSvg = ['2D','4H','7D','9S','2D','4H','7D','9S'] 
-const shuffleArray = (array:any[]) => {
+const cardsSvg = ['2D', '4H', '7D', '9S', '2D', '4H', '7D', '9S']
+const shuffleArray = (array: any[]) => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     const temp = array[i];
@@ -131,18 +131,18 @@ const shuffleArray = (array:any[]) => {
 
 let isGameRun = false
 let showPause = false
-let card1: Element|undefined
-let card2: Element|undefined
+let card1: Element | undefined
+let card2: Element | undefined
 
-document.body.addEventListener('click', (e:MouseEvent) => {
+document.body.addEventListener('click', (e: MouseEvent) => {
 
   if (e.target == startGame) {
     isGameRun = !isGameRun
     if (isGameRun) {
       startGame.textContent = 'Finish'
       shuffleArray(cardsSvg)
-      cards.forEach((el,i) => {
-        (el.querySelector('.front-face') as HTMLImageElement).src = 'images/'+cardsSvg[i]+'.svg'   
+      cards.forEach((el, i) => {
+        (el.querySelector('.front-face') as HTMLImageElement).src = 'images/' + cardsSvg[i] + '.svg'
       })
     } else {
       startGame.textContent = 'Start'
@@ -153,7 +153,7 @@ document.body.addEventListener('click', (e:MouseEvent) => {
   }
 
   const card = (e.target as HTMLElement).closest('.memory-card')
-  
+
   if (card && isGameRun && !showPause) {
     card.classList.toggle('flip')
     if (card.classList.contains('flip')) {
@@ -172,12 +172,12 @@ document.body.addEventListener('click', (e:MouseEvent) => {
           console.log('false')
           // if not same -> clear cards and toggle flip
           showPause = true
-          setTimeout(()=>{
-            showPause = false            
+          setTimeout(() => {
+            showPause = false
             card1?.classList.toggle('flip')
             card2?.classList.toggle('flip')
             card1 = card2 = undefined
-          },3000)
+          }, 3000)
         }
       }
 
@@ -186,20 +186,14 @@ document.body.addEventListener('click', (e:MouseEvent) => {
 
 })
 
- // Select all elements with the "i" tag and store them in a NodeList called "stars"
- const stars = document.querySelectorAll(".stars i");
 
- // Loop through the "stars" NodeList
- stars.forEach((star, index1) => {
-   // Add an event listener that runs a function when the "click" event is triggered
-   star.addEventListener("click", () => {
-     // Loop through the "stars" NodeList Again
-     stars.forEach((star, index2) => {
-       // Add the "active" class to the clicked star and any stars with a lower index
-       // and remove the "active" class from any stars with a higher index
-       index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
-     });
-   });
- });
+const stars = document.querySelectorAll(".stars i");
+stars.forEach((star, index1) => {
+  star.addEventListener("click", () => {
+    stars.forEach((star, index2) => {
+      index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
+    });
+  });
+});
 
 
