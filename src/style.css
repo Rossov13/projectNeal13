@@ -17,14 +17,14 @@
     font-size: 20px;
     font-family: sans-serif;
     font-weight: bold;
-    color: rgb(0,0,0);
+    color: rgb(0, 0, 0);
 }
 
 .tabs {
     border-bottom: 1px solid grey;
-    background-color: rgb(16,153,9);
+    background-color: rgb(16, 153, 9);
     font-size: 25px;
-    color: rgb(0,0,0);
+    color: rgb(0, 0, 0);
     display: flex;
     margin: 0;
 }
@@ -46,7 +46,7 @@
     font-family: Arial;
     margin: 0 auto;
     max-width: 800px;
-    padding-top: 100px; 
+    padding-top: 100px;
 
 }
 
@@ -77,33 +77,52 @@
 
 .right {
     text-align: right;
-  }
-  
-  .row:after {
+}
+
+.row:after {
     content: "";
     display: table;
     clear: both;
-  }
-  
-  
-  .bar-container {
+}
+
+
+.bar-container {
     width: 100%;
     background-color: #f1f1f1;
     text-align: center;
     color: white;
-  }
-  
- 
-  .bar-5 {height: 18px; background-color: #04AA6D;}
-  .bar-4 {height: 18px; background-color: #2196F3;}
-  .bar-3 {height: 18px; background-color: #00bcd4;}
-  .bar-2 {height: 18px; background-color: #ff9800;}
-  .bar-1 {height: 18px; background-color: #f44336;}
-  
+}
+
+
+.bar-5 {
+    height: 18px;
+    background-color: #04AA6D;
+}
+
+.bar-4 {
+    height: 18px;
+    background-color: #2196F3;
+}
+
+.bar-3 {
+    height: 18px;
+    background-color: #00bcd4;
+}
+
+.bar-2 {
+    height: 18px;
+    background-color: #ff9800;
+}
+
+.bar-1 {
+    height: 18px;
+    background-color: #f44336;
+}
 
 
 
-  .memory-game {
+
+.memory-game {
     width: 660px;
     height: 440px;
     margin-top: 20px;
@@ -113,35 +132,38 @@
     background: #1C7CCC;
     gap: 20px;
     padding: 20px;
-    } 
-
-    .memory-card {
-        position: relative;
-    }
-    .flip .front-face {
-        transform: rotate3d(0, 1, 0, 0deg);
-        transition: 1s 1s;
-    }
-    .flip .back-face {
-        transform: rotate3d(0, 1, 0, 90deg);
-        transition: 1s ;
-    }
-    
-    .back-face {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        border-radius: 5px;
-        transform: rotate3d(0, 1, 0, 0deg);
-        transition: 1s 1s;
 }
+
+.memory-card {
+    position: relative;
+}
+
+.flip .front-face {
+    transform: rotate3d(0, 1, 0, 0deg);
+    transition: 1s 1s;
+}
+
+.flip .back-face {
+    transform: rotate3d(0, 1, 0, 90deg);
+    transition: 1s;
+}
+
+.back-face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 5px;
+    transform: rotate3d(0, 1, 0, 0deg);
+    transition: 1s 1s;
+}
+
 .front-face {
     width: 100%;
     height: 100%;
     position: absolute;
     border-radius: 5px;
     transform: rotate3d(0, 1, 0, 90deg);
-    transition: 1s ;
+    transition: 1s;
 }
 
 .mike {
@@ -172,9 +194,209 @@
     font-size: 35px;
     cursor: pointer;
     /* transition:  */
-  }
+}
 
 
-  .stars i.active {
+.stars i.active {
     color: #ff9c1a;
+}
+
+
+.body1 {
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(ellipse at bottom, #0D1E31, #111);
+    overflow: hidden;
+}
+
+.night {
+    position: relative;
+    /* position: relative; */
+    width: 100%;
+    height: 100%;
+    transform: rotateZ(40deg);
+}
+
+.star {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 4px;
+    background: linear-gradient(-45deg, #5F91FF, rgba(0, 0, 255, 0));
+    border-radius: 999px;
+    filter: drop-shadow(0 0 6px #699BFF);
+    animation: tail 3s ease-in-out infinite,
+        falling 3s ease-in-out infinite;
+}
+
+@keyframes tail {
+    0% {
+        width: 0;
+    }
+
+    30% {
+        width: 100px;
+    }
+
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes falling {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(300px);
+    }
+}
+
+.star::before,
+.star::after {
+    content: '';
+    position: absolute;
+    top: calc(50% - 2px);
+    right: 0;
+    height: 4px;
+    background: linear-gradient(-45deg, rgba(0, 0, 255, 0), #5F91FF, rgba(0, 0, 255, 0));
+    border-radius: 100%;
+    transform: translateX(50%) rotateZ(45deg);
+    animation: shining 3s ease-in-out infinite;
+}
+
+@keyframes shining {
+    0% {
+        width: 0;
+    }
+
+    50% {
+        width: 30px;
+    }
+
+    100% {
+        width: 0;
+    }
+}
+
+.star::after {
+    transform: translateX(50%) rotateZ(-45deg);
+}
+
+.star:nth-child(1) {
+    top: calc(50% - 100px);
+    left: calc(50% - 250px);
+    animation-delay: 1s;
+}
+
+.star:nth-child(1)::before,
+.star:nth-child(1)::after {
+    animation-delay: 1s;
+}
+
+.star:nth-child(2) {
+    top: calc(50% - 50px);
+    left: calc(50% - 200px);
+    animation-delay: 1.2s;
+}
+
+.star:nth-child(2)::before,
+.star:nth-child(2)::after {
+    animation-delay: 1.2s;
+}
+
+.star:nth-child(3) {
+    top: calc(50% - 0px);
+    left: calc(50% - 150px);
+    animation-delay: 1.4s;
+}
+
+.star:nth-child(3)::before,
+.star:nth-child(3)::after {
+    animation-delay: 1.4s;
+}
+
+.star:nth-child(4) {
+    top: calc(50% - -50px);
+    left: calc(50% - 200px);
+    animation-delay: 1.6s;
+}
+
+.star:nth-child(4)::before,
+.star:nth-child(4)::after {
+    animation-delay: 1.6s;
+}
+
+.star:nth-child(5) {
+    top: calc(50% - -100px);
+    left: calc(50% - 250px);
+    animation-delay: 1.8s;
+}
+
+.star:nth-child(5)::before,
+.star:nth-child(5)::after {
+    animation-delay: 1.8s;
+}
+
+.white-mode {
+    text-decoration: none;
+    padding: 17px 40px;
+    background-color: yellow;
+    border-radius: 3px;
+    color: black;
+    transition: .35s ease-in-out;
+    position: absolute;
+    left: 15px;
+    bottom: 15px
+}
+
+.toDoList {
+    box-sizing: border-box;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    background: #eee;
+    font-size: 18px;
+    transition: 0.2 ;
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+ul li:nth-child(odd) {
+    background: #f9f9f9;
   }
+
+ul li:hover {
+    background: #ddd;
+}
+
+ul li.checked {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through;
+}
+
+ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px
+}
