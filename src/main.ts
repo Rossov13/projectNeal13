@@ -197,6 +197,30 @@ stars.forEach((star, index1) => {
 });
 
 
+let myNodelist = document.getElementsByTagName("LI");
+let i;
+for (i = 0; i < myNodelist.length; i++) {
+  let span = document.createElement("SPAN");
+  let txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+let closebtns = document.getElementsByClassName("close");
+let k;
+
+for (k = 0; k < closebtns.length; k++) {
+  closebtns[k].addEventListener("click", function() {
+    this.parentElement.style.display = 'none';
+  });
+}
 
 
+function newElement() {
+  let li = document.createElement("li");
+  let inputValue = document.getElementById("myInput").value;
+  let t = document.createTextNode(inputValue);
+  
+}
 
