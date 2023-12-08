@@ -228,13 +228,13 @@ stars.forEach((star, index1) => {
 // }
 
 let myNodelist = document.getElementsByTagName("LI");
-let i;
-for (i = 0; i < myNodelist.length; i++) {
+let k;
+for (k = 0; k < myNodelist.length; k++) {
   let span = document.createElement("SPAN");
   let txt = document.createTextNode("\u00D7");
   span.className = "close";
   span.appendChild(txt);
-  myNodelist[i].appendChild(span);
+  myNodelist[k].appendChild(span);
 }
 
 // Click on a close button to hide the current list item
@@ -242,8 +242,8 @@ let close = document.getElementsByClassName("close");
 let i;
 for (i = 0; i < close.length; i++) {
   close[i].onclick = function() {
-    let div = this.parentElement;
-    div.style.display = "none";
+    let div = this.parentElement as HTMLDivElement
+    div.style.display = "none" 
   }
 }
 
