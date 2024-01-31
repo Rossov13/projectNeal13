@@ -267,3 +267,4 @@ function addNewElement() {
   todoUL?.insertAdjacentHTML('afterbegin', `<li>${(document.getElementById("myInput")as HTMLInputElement)?.value}<span class="close">\u00D7</span></li>`)
 }
 
+const markl = 'hello';
