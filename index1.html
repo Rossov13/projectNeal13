@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + TS</title>
+</head>
+ <body>
+    
+    <h1>Autocomplete</h1>
+
+
+    <label class="wordNearInput" for="text">Languages</label>
+    <input class="wordNearInput" type="search" list="languages" placeholder="Pick a programming language..">
+  
+    <datalist id="languages">
+      <option value="PHP" />
+      <option value="C++" />
+      <option value="Java" />
+      <option value="Ruby" />
+      <option value="Python" />
+      <option value="Go" />
+      <option value="Perl" />
+      <option value="Erlang" />
+    </datalist>
+
+
+<div id="app"></div>
+<script type="module" src="/src/main.ts"></script>
+
+</body>
+</html>
