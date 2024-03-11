@@ -713,3 +713,49 @@ label {
 	}
 }
 
+
+
+/* Game */
+
+.html1 {
+  overflow-x: hidden; 
+  margin-top: 10%;
+}
+
+.body11 {
+  width: 100%;
+  height: ;
+  display: flex;
+  background: linear-gradient(to bottom right, rgba(255, 0, 0, 0.26), rgba(28, 28, 151, 0.267), rgba(0, 128, 0, 0.397));
+  justify-content: center;
+  align-items: center;
+}
+
+.grid{
+  position: relative;
+  width: 640px;
+  height: 300px;
+  background: radial-gradient(to bottom right, rgba(70, 0, 0, 0.26), rgba(1, 1, 44, 0.267), rgba(0, 182, 0, 0.397));
+  border: 1px solid black;
+  background-color: rgb(197, 197, 197);
+}
+
+.block,
+.userBlock{
+  position: absolute;
+  width: 100px;
+  height: 20px;
+  background: rgb(83, 0, 0);
+}
+
+.userBlock{
+  background: rgb(0, 0, 39);
+}
+
+.ball{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgb(17, 0, 0);
+}
