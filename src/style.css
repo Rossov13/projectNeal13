@@ -86,7 +86,7 @@
 }
 
 
-.bar-container {
+/* .bar-container {
     width: 100%;
     background-color: #f1f1f1;
     text-align: center;
@@ -117,12 +117,12 @@
 .bar-1 {
     height: 18px;
     background-color: #f44336;
-}
+} */
 
 
 
 
-.memory-game {
+/* .memory-game {
     width: 705px;
     height: 520px;
     margin-top: 20px;
@@ -175,7 +175,7 @@
     align-items: center;
     justify-content: center;
     background: linear-gradient(45deg, #ffd195, #ffb283);
-}
+} */
 
 
 
