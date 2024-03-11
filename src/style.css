@@ -634,3 +634,13 @@ h1 {
     font-size: 1.35rem;
   }
 }
+
+canvas {
+  background: #eee;
+  display: block;
+  margin: 0 auto;
+}
+
+button {
+  display: block;
+}
