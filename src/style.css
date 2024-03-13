@@ -723,8 +723,10 @@ label {
 }
 
 .body11 {
+  padding-top: 50px;
+  padding-bottom: 50px;
   width: 100%;
-  height: ;
+  height: 30%;
   display: flex;
   background: linear-gradient(to bottom right, rgba(255, 0, 0, 0.26), rgba(28, 28, 151, 0.267), rgba(0, 128, 0, 0.397));
   justify-content: center;

@@ -117,86 +117,88 @@ tabs.forEach(tab => {
 
 // renderRating()
 
-const cards = document.querySelectorAll('.memory-card') as NodeListOf<HTMLDivElement>
-const startGame = document.querySelector('#startGame') as HTMLButtonElement
-const cardsSvg = ['2D', '4H', '7D', '9S', '2D', '4H', '7D', '9S']
-const shuffleArray = (array: any[]) => {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    const temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
-  }
-}
 
-let isGameRun = false
-let showPause = false
-let card1: Element | undefined
-let card2: Element | undefined
+// Card game Heh
+// const cards = document.querySelectorAll('.memory-card') as NodeListOf<HTMLDivElement>
+// const startGame = document.querySelector('#startGame') as HTMLButtonElement
+// const cardsSvg = ['2D', '4H', '7D', '9S', '2D', '4H', '7D', '9S']
+// const shuffleArray = (array: any[]) => {
+//   for (let i = array.length - 1; i > 0; i--) {
+//     const j = Math.floor(Math.random() * (i + 1));
+//     const temp = array[i];
+//     array[i] = array[j];
+//     array[j] = temp;
+//   }
+// }
 
-document.body.addEventListener('click', (e: MouseEvent) => {
+// let isGameRun = false
+// let showPause = false
+// let card1: Element | undefined
+// let card2: Element | undefined
 
-  if (e.target == startGame) {
-    isGameRun = !isGameRun
-    if (isGameRun) {
-      startGame.textContent = 'Finish'
-      shuffleArray(cardsSvg)
-      cards.forEach((el, i) => {
-        (el.querySelector('.front-face') as HTMLImageElement).src = 'images/' + cardsSvg[i] + '.svg'
-      })
-    } else {
-      startGame.textContent = 'Start'
-      cards.forEach(el => {
-        el.classList.remove('flip')
-      })
-    }
-  }
+// document.body.addEventListener('click', (e: MouseEvent) => {
 
-  const card = (e.target as HTMLElement).closest('.memory-card')
+//   if (e.target == startGame) {
+//     isGameRun = !isGameRun
+//     if (isGameRun) {
+//       startGame.textContent = 'Finish'
+//       shuffleArray(cardsSvg)
+//       cards.forEach((el, i) => {
+//         (el.querySelector('.front-face') as HTMLImageElement).src = 'images/' + cardsSvg[i] + '.svg'
+//       })
+//     } else {
+//       startGame.textContent = 'Start'
+//       cards.forEach(el => {
+//         el.classList.remove('flip')
+//       })
+//     }
+//   }
 
-  if (card && isGameRun && !showPause) {
-    card.classList.toggle('flip')
-    if (card.classList.contains('flip')) {
-      if (!card1) {
-        card1 = card
-      } else {
-        card2 = card
-      }
-      if (card1 && card2) {
-        // check value
-        if ((card1.querySelector('.front-face') as HTMLImageElement).src == (card2.querySelector('.front-face') as HTMLImageElement).src) {
-          // if same value clear cards
-          console.log('true')
-          card1 = card2 = undefined
-        } else {
-          console.log('false')
-          // if not same -> clear cards and toggle flip
-          showPause = true
-          setTimeout(() => {
-            showPause = false
-            card1?.classList.toggle('flip')
-            card2?.classList.toggle('flip')
-            card1 = card2 = undefined
-          }, 3000)
-        }
-      }
+//   const card = (e.target as HTMLElement).closest('.memory-card')
 
-    }
-  }
+//   if (card && isGameRun && !showPause) {
+//     card.classList.toggle('flip')
+//     if (card.classList.contains('flip')) {
+//       if (!card1) {
+//         card1 = card
+//       } else {
+//         card2 = card
+//       }
+//       if (card1 && card2) {
+//         // check value
+//         if ((card1.querySelector('.front-face') as HTMLImageElement).src == (card2.querySelector('.front-face') as HTMLImageElement).src) {
+//           // if same value clear cards
+//           console.log('true')
+//           card1 = card2 = undefined
+//         } else {
+//           console.log('false')
+//           // if not same -> clear cards and toggle flip
+//           showPause = true
+//           setTimeout(() => {
+//             showPause = false
+//             card1?.classList.toggle('flip')
+//             card2?.classList.toggle('flip')
+//             card1 = card2 = undefined
+//           }, 3000)
+//         }
+//       }
 
-})
+//     }
+//   }
 
-
-const stars = document.querySelectorAll(".stars i");
-stars.forEach((star, index1) => {
-  star.addEventListener("click", () => {
-    stars.forEach((star, index2) => {
-      index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
-    });
-  });
-});
+// })
 
 
+// const stars = document.querySelectorAll(".stars i");
+// stars.forEach((star, index1) => {
+//   star.addEventListener("click", () => {
+//     stars.forEach((star, index2) => {
+//       index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
+//     });
+//   });
+// });
+
+// TO DO List
 // let myNodelist = document.getElementsByTagName("LI");
 // let i;
 // for (i = 0; i < myNodelist.length; i++) {
@@ -241,16 +243,16 @@ for (k = 0; k < myNodelist.length; k++) {
 let close = document.getElementsByClassName("close");
 let i;
 for (i = 0; i < close.length; i++) {
-  close[i].onclick = function() {
+  close[i].onclick = function () {
     let div = this.parentElement as HTMLDivElement
-    div.style.display = "none" 
+    div.style.display = "none"
   }
 }
 
 // Add a "checked" symbol when clicking on a list item
 
 let list = document.querySelector('ul') as HTMLElement
-  list.addEventListener('click', function(ev) {
+list.addEventListener('click', function (ev) {
 
   if (ev.target.tagName === 'LI') {
     ev.target.classList.toggle('checked');
@@ -264,7 +266,7 @@ addBtn?.addEventListener('click', addNewElement)
 
 
 function addNewElement() {
-  todoUL?.insertAdjacentHTML('afterbegin', `<li>${(document.getElementById("myInput")as HTMLInputElement)?.value}<span class="close">\u00D7</span></li>`)
+  todoUL?.insertAdjacentHTML('afterbegin', `<li>${(document.getElementById("myInput") as HTMLInputElement)?.value}<span class="close">\u00D7</span></li>`)
 }
 
 const markl = 'hello';
@@ -279,8 +281,8 @@ const weatherCardsDiv = document.querySelector(".weather-cards");
 const API_KEY = "39bc7b6c3005d0c1c22ee964387eb1d8"; // API key for OpenWeatherMap API
 
 const createWeatherCard = (cityName, weatherItem, index) => {
-    if(index === 0) { // HTML for the main weather card
-        return `<div class="details">
+  if (index === 0) { // HTML for the main weather card
+    return `<div class="details">
                     <h2>${cityName} (${weatherItem.dt_txt.split(" ")[0]})</h2>
                     <h6>Temperature: ${(weatherItem.main.temp - 273.15).toFixed(2)}°C</h6>
                     <h6>Wind: ${weatherItem.wind.speed} M/S</h6>
@@ -290,84 +292,84 @@ const createWeatherCard = (cityName, weatherItem, index) => {
                     <img src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}@4x.png" alt="weather-icon">
                     <h6>${weatherItem.weather[0].description}</h6>
                 </div>`;
-    } else { // HTML for the other five day forecast card
-        return `<li class="card">
+  } else { // HTML for the other five day forecast card
+    return `<li class="card">
                     <h3>(${weatherItem.dt_txt.split(" ")[0]})</h3>
                     <img src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}@4x.png" alt="weather-icon">
                     <h6>Temp: ${(weatherItem.main.temp - 273.15).toFixed(2)}°C</h6>
                     <h6>Wind: ${weatherItem.wind.speed} M/S</h6>
                     <h6>Humidity: ${weatherItem.main.humidity}%</h6>
                 </li>`;
-    }
+  }
 }
 
 const getWeatherDetails = (cityName, latitude, longitude) => {
-    const WEATHER_API_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`;
+  const WEATHER_API_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`;
 
-    fetch(WEATHER_API_URL).then(response => response.json()).then(data => {
-        // Filter the forecasts to get only one forecast per day
-        const uniqueForecastDays = [];
-        const fiveDaysForecast = data.list.filter(forecast => {
-            const forecastDate = new Date(forecast.dt_txt).getDate();
-            if (!uniqueForecastDays.includes(forecastDate)) {
-                return uniqueForecastDays.push(forecastDate);
-            }
-        });
-
-        // Clearing previous weather data
-        cityInput.value = "";
-        currentWeatherDiv.innerHTML = "";
-        weatherCardsDiv.innerHTML = "";
-
-        // Creating weather cards and adding them to the DOM
-        fiveDaysForecast.forEach((weatherItem, index) => {
-            const html = createWeatherCard(cityName, weatherItem, index);
-            if (index === 0) {
-                currentWeatherDiv.insertAdjacentHTML("beforeend", html);
-            } else {
-                weatherCardsDiv.insertAdjacentHTML("beforeend", html);
-            }
-        });        
-    }).catch(() => {
-        alert("An error occurred while fetching the weather forecast!");
+  fetch(WEATHER_API_URL).then(response => response.json()).then(data => {
+    // Filter the forecasts to get only one forecast per day
+    const uniqueForecastDays = [];
+    const fiveDaysForecast = data.list.filter(forecast => {
+      const forecastDate = new Date(forecast.dt_txt).getDate();
+      if (!uniqueForecastDays.includes(forecastDate)) {
+        return uniqueForecastDays.push(forecastDate);
+      }
     });
+
+    // Clearing previous weather data
+    cityInput.value = "";
+    currentWeatherDiv.innerHTML = "";
+    weatherCardsDiv.innerHTML = "";
+
+    // Creating weather cards and adding them to the DOM
+    fiveDaysForecast.forEach((weatherItem, index) => {
+      const html = createWeatherCard(cityName, weatherItem, index);
+      if (index === 0) {
+        currentWeatherDiv.insertAdjacentHTML("beforeend", html);
+      } else {
+        weatherCardsDiv.insertAdjacentHTML("beforeend", html);
+      }
+    });
+  }).catch(() => {
+    alert("An error occurred while fetching the weather forecast!");
+  });
 }
 
 const getCityCoordinates = () => {
-    const cityName = cityInput.value.trim();
-    if (cityName === "") return;
-    const API_URL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_KEY}`;
-    
-    // Get entered city coordinates (latitude, longitude, and name) from the API response
-    fetch(API_URL).then(response => response.json()).then(data => {
-        if (!data.length) return alert(`No coordinates found for ${cityName}`);
-        const { lat, lon, name } = data[0];
-        getWeatherDetails(name, lat, lon);
-    }).catch(() => {
-        alert("An error occurred while fetching the coordinates!");
-    });
+  const cityName = cityInput.value.trim();
+  if (cityName === "") return;
+  const API_URL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_KEY}`;
+
+  // Get entered city coordinates (latitude, longitude, and name) from the API response
+  fetch(API_URL).then(response => response.json()).then(data => {
+    if (!data.length) return alert(`No coordinates found for ${cityName}`);
+    const { lat, lon, name } = data[0];
+    getWeatherDetails(name, lat, lon);
+  }).catch(() => {
+    alert("An error occurred while fetching the coordinates!");
+  });
 }
 
 const getUserCoordinates = () => {
-    navigator.geolocation.getCurrentPosition(
-        position => {
-            const { latitude, longitude } = position.coords; // Get coordinates of user location
-            // Get city name from coordinates using reverse geocoding API
-            const API_URL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${API_KEY}`;
-            fetch(API_URL).then(response => response.json()).then(data => {
-                const { name } = data[0];
-                getWeatherDetails(name, latitude, longitude);
-            }).catch(() => {
-                alert("An error occurred while fetching the city name!");
-            });
-        },
-        error => { // Show alert if user denied the location permission
-            if (error.code === error.PERMISSION_DENIED) {
-                alert("Geolocation request denied. Please reset location permission to grant access again.");
-            } else {
-                alert("Geolocation request error. Please reset location permission.");
-            }
-        });
+  navigator.geolocation.getCurrentPosition(
+    position => {
+      const { latitude, longitude } = position.coords; // Get coordinates of user location
+      // Get city name from coordinates using reverse geocoding API
+      const API_URL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${API_KEY}`;
+      fetch(API_URL).then(response => response.json()).then(data => {
+        const { name } = data[0];
+        getWeatherDetails(name, latitude, longitude);
+      }).catch(() => {
+        alert("An error occurred while fetching the city name!");
+      });
+    },
+    error => { // Show alert if user denied the location permission
+      if (error.code === error.PERMISSION_DENIED) {
+        alert("Geolocation request denied. Please reset location permission to grant access again.");
+      } else {
+        alert("Geolocation request error. Please reset location permission.");
+      }
+    });
 }
 
 locationButton.addEventListener("click", getUserCoordinates);
@@ -393,19 +395,19 @@ let searchValue;
 
 // Event when currency is changed
 fromCurrecy.addEventListener('change', (event) => {
-	resultFrom = `${event.target.value}`;
+  resultFrom = `${event.target.value}`;
 });
 
 // Event when currency is changed
 toCurrecy.addEventListener('change', (event) => {
-	resultTo = `${event.target.value}`;
+  resultTo = `${event.target.value}`;
 });
 
 search.addEventListener('input', updateValue);
 
 // Function for updating value
 function updateValue(e) {
-	searchValue = e.target.value;
+  searchValue = e.target.value;
 }
 
 // When user clicks, it calls function getresults 
@@ -413,218 +415,227 @@ convert.addEventListener("click", getResults);
 
 // Function getresults
 function getResults() {
-	fetch(`${api}`)
-		.then(currency => {
-			return currency.json();
-		}).then(displayResults);
+  fetch(`${api}`)
+    .then(currency => {
+      return currency.json();
+    }).then(displayResults);
 }
 
 // Display results after conversion
 function displayResults(currency) {
-	let fromRate = currency.rates[resultFrom];
-	let toRate = currency.rates[resultTo];
-	finalValue.innerHTML =
-		((toRate / fromRate) * searchValue).toFixed(2);
-	finalAmount.style.display = "block";
+  let fromRate = currency.rates[resultFrom];
+  let toRate = currency.rates[resultTo];
+  finalValue.innerHTML =
+    ((toRate / fromRate) * searchValue).toFixed(2);
+  finalAmount.style.display = "block";
 }
 
 // When user click on reset button
 function clearVal() {
-	window.location.reload();
-	document.getElementsByClassName("finalValue").innerHTML = "";
+  window.location.reload();
+  document.getElementsByClassName("finalValue").innerHTML = "";
 };
 
 
 
 // Hello. It's a game
-const grid=document.querySelector('.grid')
+const grid = document.querySelector('.grid')
 
-const boardWidth=640
-const boardHeight=300
-const ballDiameter=20
-const blockWidth=100
-const blockHeight=20
+const boardWidth = 640
+const boardHeight = 300
+const ballDiameter = 20
+const blockWidth = 100
+const blockHeight = 20
 
-const userStart=[285,5]
-let currentPosition=userStart
+const userStart = [285, 5]
+let currentPosition = userStart
 
-const ballStart=[325,40]
-let ballCurrentPosition=ballStart
+const ballStart = [325, 40]
+let ballCurrentPosition = ballStart
 
 let timerId
-let xDirection=2
-let yDirection=2
+let xDirection = 2
+let yDirection = 2
 
 //create block 
-class Block{
-    constructor(xAxis, yAxis){
-        this.bottomLeft=[xAxis, yAxis]
-        this.bottomRight=[xAxis+blockWidth, yAxis]
-        this.topLeft=[xAxis, yAxis+blockHeight];
-        this.topRight=[xAxis+blockWidth, yAxis+blockHeight]
-    }
+class Block {
+  constructor(xAxis, yAxis) {
+    this.bottomLeft = [xAxis, yAxis]
+    this.bottomRight = [xAxis + blockWidth, yAxis]
+    this.topLeft = [xAxis, yAxis + blockHeight];
+    this.topRight = [xAxis + blockWidth, yAxis + blockHeight]
+  }
 }
 
 //all blocks
-const blocks=[
-    new Block(5,275),new Block(110,275),new Block(215,275),new Block(320,275),new Block(425,275),new Block(530,275),
-    new Block(5,250),new Block(110,250),new Block(215,250),new Block(320,250),new Block(425,250),new Block(530,250),
-    new Block(5,225),new Block(110,225),new Block(215,225),new Block(320,225),new Block(425,225),new Block(530,225)
+const blocks = [
+  new Block(5, 275), new Block(110, 275), new Block(215, 275), new Block(320, 275), new Block(425, 275), new Block(530, 275),
+  new Block(5, 250), new Block(110, 250), new Block(215, 250), new Block(320, 250), new Block(425, 250), new Block(530, 250),
+  new Block(5, 225), new Block(110, 225), new Block(215, 225), new Block(320, 225), new Block(425, 225), new Block(530, 225)
 ]
 
 // console.log(blocks)
 
 //draw the block
-const drawBlocks=()=>{
-    
-    for(let i=0;i<blocks.length;i++){
-        const block=document.createElement('div')
-        block.classList.add('block')
-        block.style.left=blocks[i].bottomLeft[0]+'px'
-        block.style.bottom=blocks[i].bottomLeft[1]+'px'
-        grid.appendChild(block)
-    }
+const drawBlocks = () => {
+
+  for (let i = 0; i < blocks.length; i++) {
+    const block = document.createElement('div')
+    block.classList.add('block')
+    block.style.left = blocks[i].bottomLeft[0] + 'px'
+    block.style.bottom = blocks[i].bottomLeft[1] + 'px'
+    grid.appendChild(block)
+  }
 }
 
 drawBlocks()
 
 //user Block
-const userBlock=document.createElement('div')
+const userBlock = document.createElement('div')
 userBlock.classList.add('userBlock')
-userBlock.style.left=currentPosition[0]+'px'
-userBlock.style.bottom=currentPosition[1]+'px'
+userBlock.style.left = currentPosition[0] + 'px'
+userBlock.style.bottom = currentPosition[1] + 'px'
 grid.appendChild(userBlock)
 
 //draw current user block
-const drawUserBlock=()=>{
-    userBlock.style.left=currentPosition[0]+'px'
-    userBlock.style.bottom=currentPosition[1]+'px'
+const drawUserBlock = () => {
+  userBlock.style.left = currentPosition[0] + 'px'
+  userBlock.style.bottom = currentPosition[1] + 'px'
 }
 
-const drawBall=()=>{
-    ball.style.left=ballCurrentPosition[0]+'px'
-    ball.style.bottom=ballCurrentPosition[1]+'px'
+const drawBall = () => {
+  ball.style.left = ballCurrentPosition[0] + 'px'
+  ball.style.bottom = ballCurrentPosition[1] + 'px'
 }
 
 
 //move user block
-const moveUserBlock=(event)=>{
-    switch (event.code) {
-        case 'ArrowLeft':
-            if(currentPosition[0]>5){
-                currentPosition[0]-=10
-                drawUserBlock()
-            }
-            break;
-        case 'ArrowRight':
-            if(currentPosition[0]<530){
-                currentPosition[0]+=10
-                drawUserBlock()
-            }
-            break;
-        default:
-            break;
-    }
+const moveUserBlock = (event) => {
+  switch (event.code) {
+    case 'ArrowLeft':
+      if (currentPosition[0] > 5) {
+        currentPosition[0] -= 10
+        drawUserBlock()
+      }
+      break;
+    case 'ArrowRight':
+      if (currentPosition[0] < 530) {
+        currentPosition[0] += 10
+        drawUserBlock()
+      }
+      break;
+    default:
+      break;
+  }
 }
 
-const moveBall=()=>{
-    ballCurrentPosition[0]+=xDirection
-    ballCurrentPosition[1]+=yDirection
-    drawBall()
-    checkForCollisions()
+const moveBall = () => {
+  ballCurrentPosition[0] += xDirection
+  ballCurrentPosition[1] += yDirection
+  drawBall()
+  checkForCollisions()
 }
 
-timerId=setInterval(moveBall,20)
+timerId = setInterval(moveBall, 20)
 
 //change direction of the ball
-const changeDirection=()=>{
-    if(xDirection===2&&yDirection===2){
-        yDirection=-2
-        return
-    }
-    if(xDirection===2 && yDirection ===-2){
-        xDirection=-2
-        return
-    }
-    if(xDirection===-2&&yDirection===-2){
-        yDirection=2
-        return
-    }
-    if(xDirection===-2 && yDirection===2){
-        xDirection=2
-        return
-    }
+const changeDirection = () => {
+  if (xDirection === 2 && yDirection === 2) {
+    yDirection = -2
+    return
+  }
+  if (xDirection === 2 && yDirection === -2) {
+    xDirection = -2
+    return
+  }
+  if (xDirection === -2 && yDirection === -2) {
+    yDirection = 2
+    return
+  }
+  if (xDirection === -2 && yDirection === 2) {
+    xDirection = 2
+    return
+  }
 }
 
 
 
 //check the collision logic
-const checkForCollisions=()=>{
+const checkForCollisions = () => {
 
-    //check for block collision
-    for(let i=0; i<blocks.length;i++){
-        if(
-            (ballCurrentPosition[0]>blocks[i].bottomLeft[0]) &&
-            (ballCurrentPosition[0]<
-            blocks[i].bottomRight[0]) &&
-            ((ballCurrentPosition[1]+ballDiameter)>
-            blocks[i].bottomLeft[1]) &&
-            (ballCurrentPosition[1]<blocks[i].topLeft[1])
-        ){
-            const allBlocks=Array.from(document.querySelectorAll('.block'))
-            allBlocks[i].classList.remove('block')
-            blocks.splice(i,1)
-            changeDirection()
+  //check for block collision
+  for (let i = 0; i < blocks.length; i++) {
+    if (
+      (ballCurrentPosition[0] > blocks[i].bottomLeft[0]) &&
+      (ballCurrentPosition[0] <
+        blocks[i].bottomRight[0]) &&
+      ((ballCurrentPosition[1] + ballDiameter) >
+        blocks[i].bottomLeft[1]) &&
+      (ballCurrentPosition[1] < blocks[i].topLeft[1])
+    ) {
+      const allBlocks = Array.from(document.querySelectorAll('.block'))
+      allBlocks[i].classList.remove('block')
+      blocks.splice(i, 1)
+      changeDirection()
 
-            //check if the user wins
-            if(blocks.length===0){
-                const cnfrm=confirm("YOU WIN ! WANT TO PLAY AGAIN !")
-                if(cnfrm){
-                    location.reload()
-                }
-                clearInterval(timerId)
-                document.removeEventListener('keydown', moveUserBlock)
-            }
+      //check if the user wins
+      if (blocks.length === 0) {
+        const cnfrm = confirm("YOU WIN ! WANT TO PLAY AGAIN !")
+        if (cnfrm) {
+          location.reload()
         }
-    }
-
-    //check for the user block collisions
-    if(
-        ((ballCurrentPosition[0]>currentPosition[0]) && 
-        (ballCurrentPosition[0]<currentPosition[0]+blockWidth)
-        ) &&
-        ((ballCurrentPosition[1]>currentPosition[1])&&
-        (ballCurrentPosition[1]<
-        currentPosition[1]+blockHeight)
-        )
-    ){
-        changeDirection()
-    }
-
-    //check for wall collision
-    if((ballCurrentPosition[0]>=(boardWidth-ballDiameter))||(ballCurrentPosition[1]>=(boardHeight-ballDiameter))||
-    (ballCurrentPosition[0]<=0)){
-        changeDirection()
-    }
-
-    //checkfor game over
-    if(ballCurrentPosition[1]<=0){
         clearInterval(timerId)
         document.removeEventListener('keydown', moveUserBlock)
-        const cnfrm=confirm("YOU LOSE ! WANT TO PLAY AGAIN !")
-        if(cnfrm){
-            location.reload()
-        }
+      }
     }
+  }
+
+  //check for the user block collisions
+  if (
+    ((ballCurrentPosition[0] > currentPosition[0]) &&
+      (ballCurrentPosition[0] < currentPosition[0] + blockWidth)
+    ) &&
+    ((ballCurrentPosition[1] > currentPosition[1]) &&
+      (ballCurrentPosition[1] <
+        currentPosition[1] + blockHeight)
+    )
+  ) {
+    changeDirection()
+  }
+
+  //check for wall collision
+  if ((ballCurrentPosition[0] >= (boardWidth - ballDiameter)) || (ballCurrentPosition[1] >= (boardHeight - ballDiameter)) ||
+    (ballCurrentPosition[0] <= 0)) {
+    changeDirection()
+  }
+
+  //checkfor game over
+  if (ballCurrentPosition[1] <= 0) {
+    clearInterval(timerId)
+    document.removeEventListener('keydown', moveUserBlock)
+    const cnfrm = confirm("YOU LOSE ! WANT TO PLAY AGAIN !")
+    if (cnfrm) {
+      location.reload()
+    }
+  }
 }
 
 //create a ball
-const ball=document.createElement('div')
-ball.classList.add('ball')
-ball.style.left=ballCurrentPosition[0]+'px'
-ball.style.bottom=ballCurrentPosition[1]+'px'
-grid.appendChild(ball)
 
-document.addEventListener('keydown',(event)=>{
-    moveUserBlock(event)
+const startGame = document.querySelector('#startGame') as HTMLButtonElement //added  
+startGame.addEventListener('click', () => {
+  grid.appendChild(ball)
 })
+
+
+const ball = document.createElement('div')
+ball.classList.add('ball')
+ball.style.left = ballCurrentPosition[0] + 'px'
+ball.style.bottom = ballCurrentPosition[1] + 'px'
+
+document.addEventListener('keydown', (event) => {
+  moveUserBlock(event)
+})
+
+
+
