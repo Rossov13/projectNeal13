@@ -5,6 +5,7 @@ import './style.css'
 // 1. HTML page with tabs.
 
 
+
 const tabs = document.querySelectorAll('[data-tab-value]') as NodeListOf<HTMLElement>
 const tabInfos = document.querySelectorAll('[data-tab-info]')
 
@@ -453,6 +454,11 @@ let currentPosition = userStart
 const ballStart = [325, 40]
 let ballCurrentPosition = ballStart
 
+const ball = document.createElement('div')
+ball.classList.add('ball')
+ball.style.left = ballCurrentPosition[0] + 'px'
+ball.style.bottom = ballCurrentPosition[1] + 'px'
+
 let timerId
 let xDirection = 2
 let yDirection = 2
@@ -536,7 +542,7 @@ const moveBall = () => {
   checkForCollisions()
 }
 
-timerId = setInterval(moveBall, 20)
+
 
 //change direction of the ball
 const changeDirection = () => {
@@ -557,7 +563,6 @@ const changeDirection = () => {
     return
   }
 }
-
 
 
 //check the collision logic
@@ -625,13 +630,10 @@ const checkForCollisions = () => {
 const startGame = document.querySelector('#startGame') as HTMLButtonElement //added  
 startGame.addEventListener('click', () => {
   grid.appendChild(ball)
+  timerId = setInterval(moveBall, 20)
 })
 
 
-const ball = document.createElement('div')
-ball.classList.add('ball')
-ball.style.left = ballCurrentPosition[0] + 'px'
-ball.style.bottom = ballCurrentPosition[1] + 'px'
 
 document.addEventListener('keydown', (event) => {
   moveUserBlock(event)
