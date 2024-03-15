@@ -1,3 +1,5 @@
+import './style.css'
+
 (function() {
 
 	let sprite = document.querySelector('.sprite'),
